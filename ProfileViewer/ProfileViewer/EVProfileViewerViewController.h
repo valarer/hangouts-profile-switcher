@@ -33,6 +33,7 @@
 
 @property (nonatomic) CGFloat profileContainerHeight;
 @property (nonatomic) CGFloat scaleFactor;
+@property (nonatomic) CGFloat activatorDestinationCenterY;
 @property (nonatomic) NSTimeInterval animationDuration;
 
 @property (nonatomic, readonly) BOOL isShowingProfileViewer;

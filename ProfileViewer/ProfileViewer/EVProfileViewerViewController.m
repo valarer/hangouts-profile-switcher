@@ -70,6 +70,7 @@
     _profileContainerHeight = PROFILE_VIEW_MIN_HEIGHT;
     _scaleFactor = 2.0f;
     _animationDuration = 0.3f;
+    _activatorDestinationCenterY = ACTIVATOR_TRANSLATION_Y;
 }
 
 - (void)viewDidLoad
@@ -200,7 +201,7 @@
                          // Animate profile activator
                          _profileActivatorView.transform = CGAffineTransformMakeScale(_scaleFactor, _scaleFactor);
                          _profileActivatorView.center = CGPointMake(_originalProfileActivatorCenter.x,
-                                                                    _originalProfileActivatorCenter.y + ACTIVATOR_TRANSLATION_Y);
+                                                                    _originalProfileActivatorCenter.y + _activatorDestinationCenterY);
                          
                          if (_customShowAnimations)
                              _customShowAnimations();
@@ -314,10 +315,11 @@
             };
         
         // Animate profile activator
-        yVelocity = ACTIVATOR_TRANSLATION_Y / _profileContainerHeight;
-        yTranslationMax = MIN(translationValues.y * yVelocity, ACTIVATOR_TRANSLATION_Y);
-        CGFloat scale = MAX((yTranslationMax * _scaleFactor) / ACTIVATOR_TRANSLATION_Y, 1.0f);
-        _profileActivatorView.transform = CGAffineTransformMakeScale(scale, scale);
+        yVelocity = (_scaleFactor - 1.0f) / _profileContainerHeight;
+        yTranslationMax = MIN((translationValues.y * yVelocity) + 1.0f, _scaleFactor);
+        _profileActivatorView.transform = CGAffineTransformMakeScale(yTranslationMax, yTranslationMax);
+        yVelocity = _activatorDestinationCenterY / _profileContainerHeight;
+        yTranslationMax = MIN(translationValues.y * yVelocity, _activatorDestinationCenterY);
         _profileActivatorView.center = CGPointMake(_originalProfileActivatorCenter.x, _originalProfileActivatorCenter.y + yTranslationMax);
         
         if (_didTranslateYProfileViewer)

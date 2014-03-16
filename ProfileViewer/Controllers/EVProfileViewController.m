@@ -107,6 +107,25 @@
     return [_usersArray count];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableView.bounds.size.width, _tableView.rowHeight)];
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.center = CGPointMake(50, _tableView.rowHeight / 2);
+    addButton.tintColor = [UIColor whiteColor];
+    UILabel *addLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, _tableView.rowHeight)];
+    addLabel.center = CGPointMake(_tableView.bounds.size.width / 2, addLabel.center.y);
+    addLabel.backgroundColor = [UIColor clearColor];
+    addLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
+    addLabel.textColor = [UIColor whiteColor];
+    addLabel.text = @"Add Account";
+    
+    [containerView addSubview:addButton];
+    [containerView addSubview:addLabel];
+    
+    return containerView;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
