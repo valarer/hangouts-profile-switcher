@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) UITapGestureRecognizer *profileActivatorTapGestureRecognizer;
 @property (strong, nonatomic) UIPanGestureRecognizer *profileActivatorPanGestureRecognizer;
+@property (strong, nonatomic) UITapGestureRecognizer *contentViewTapGestureRecognizer;
 
 @end
 
@@ -127,6 +128,13 @@
     _profileActivatorPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPanNavigationBar:)];
     [_navigationBar addGestureRecognizer:_profileActivatorPanGestureRecognizer];
     
+    // Because we disable interaction with this view, we will calculate manually whether the user tapped the content view or not
+    // Other solution would be iterating each subview of the contentview and disable interaction...
+    _contentViewTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideProfileView)];
+    _contentViewTapGestureRecognizer.delegate = self;
+    _contentViewTapGestureRecognizer.enabled = NO;
+    [self.view addGestureRecognizer:_contentViewTapGestureRecognizer];
+    
 #if DEBUG_MODE
     _profileActivatorView.backgroundColor = [UIColor redColor];
 #endif
@@ -150,6 +158,11 @@
         _profileActivatorImageView.image = _profileImage;
         _profileActivatorImageView.center = CGPointMake(_profileActivatorView.bounds.size.width / 2, _profileActivatorView.bounds.size.height / 2);
         _profileActivatorImageView.hidden = NO;
+        // masks images to the bounds of the view
+        CALayer *layer = _profileActivatorImageView.layer;
+        layer.masksToBounds = YES;
+        layer.cornerRadius = _profileActivatorImageView.bounds.size.width / 2.0;
+        layer.borderWidth = 0.0;
         
         [_profileActivatorView addSubview:_profileActivatorImageView];
         
@@ -181,8 +194,9 @@
 
 - (void)showProfileView
 {
-    // Disable interation with content view
+    // Disable interation with views
     _contentView.userInteractionEnabled = NO;
+    _profileContainerView.userInteractionEnabled = NO;
     
     [UIView animateWithDuration:_animationDuration
                           delay:0
@@ -207,7 +221,11 @@
                              _customShowAnimations();
                          
                      } completion:^(BOOL finished) {
+                         
                          _isShowingProfileViewer = YES;
+                         // Enable the close recognizer
+                         _contentViewTapGestureRecognizer.enabled = YES;
+                         _profileContainerView.userInteractionEnabled = YES;
                          
                          // We need to change the superview of the activator in order for the gesture recognizer to work
                          // (the recognizer doesn't work if the view left the bounds of its superview)
@@ -231,6 +249,8 @@
     CGPoint newCenter = [_navigationBar convertPoint:_profileActivatorView.center fromView:_profileContainerView];
     [_navigationBar addSubview:_profileActivatorView];
     _profileActivatorView.center = newCenter;
+    
+    _profileContainerView.userInteractionEnabled = NO;
 
     [UIView animateWithDuration:_animationDuration
                           delay:0
@@ -244,6 +264,7 @@
                      } completion:^(BOOL finished) {
                          _isShowingProfileViewer = NO;
                          _contentView.userInteractionEnabled = YES;
+                         _contentViewTapGestureRecognizer.enabled = NO;
                          
                          if ([_delegate respondsToSelector:@selector(didHideProfileViewer)])
                              [_delegate didHideProfileViewer];
@@ -337,5 +358,11 @@
     }
 }
 
+#pragma mark - UIGestureRecognizer delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return (CGRectContainsPoint(_contentView.bounds, [touch locationInView:_contentView]));
+}
 
 @end

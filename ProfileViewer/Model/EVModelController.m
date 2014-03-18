@@ -26,19 +26,19 @@ static EVModelController *_sharedModelController;
     ericPrimary.identifier = @"1";
     ericPrimary.name = @"Eric Velázquez";
     ericPrimary.email = @"your.email@gmail.com";
-    ericPrimary.imageName = @"avatar_cat";
+    ericPrimary.imageName = @"avatar_takayamaleaves";
     
     EVUser *ericWork = [EVUser new];
     ericWork.identifier = @"2";
     ericWork.name = @"Eric Work";
     ericWork.email = @"work.email@gmail.com";
-    ericWork.imageName = @"avatar_monkey";
+    ericWork.imageName = @"avatar_kyotogarden";
     
     EVUser *ericSchool = [EVUser new];
     ericSchool.identifier = @"3";
     ericSchool.name = @"Eric School";
     ericSchool.email = @"school.email@gmail.com";
-    ericSchool.imageName = @"avatar_dog";
+    ericSchool.imageName = @"avatar_kamakurashrine";
     
     return @[ericPrimary, ericWork, ericSchool];
 }

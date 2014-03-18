@@ -16,7 +16,7 @@
 
 @end
 
-@interface EVProfileViewerViewController : UIViewController
+@interface EVProfileViewerViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) id<EVProfileViewerDelegate> delegate;
 

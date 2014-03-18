@@ -137,12 +137,15 @@
         cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:12];
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.imageView.layer.masksToBounds = YES;
     }
     
     EVUser *user = _usersArray[indexPath.row];
     cell.textLabel.text = user.name;
     cell.detailTextLabel.text = user.email;
-    cell.imageView.image = [self resizeImage:[UIImage imageNamed:user.imageName] newSize:CGSizeMake(20, 20)];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_small", user.imageName]];
+    cell.imageView.image = image;
+    cell.imageView.layer.cornerRadius = image.size.width / 2;
     
     return cell;
 }
@@ -156,36 +159,6 @@
     if ([_delegate respondsToSelector:@selector(didSelectUser:)]) {
         [_delegate didSelectUser:user];
     }
-}
-
-#pragma mark - Helpers
-
-// taken from StackOverflow
-// http://stackoverflow.com/a/7775470
-
-- (UIImage *)resizeImage:(UIImage*)image newSize:(CGSize)newSize {
-    CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
-    CGImageRef imageRef = image.CGImage;
-    
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    // Set the quality level to use when rescaling
-    CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-    CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, newSize.height);
-    
-    CGContextConcatCTM(context, flipVertical);
-    // Draw into the context; this scales the image
-    CGContextDrawImage(context, newRect, imageRef);
-    
-    // Get the resized image from the context and a UIImage
-    CGImageRef newImageRef = CGBitmapContextCreateImage(context);
-    UIImage *newImage = [UIImage imageWithCGImage:newImageRef];
-    
-    CGImageRelease(newImageRef);
-    UIGraphicsEndImageContext();
-    
-    return newImage;
 }
 
 @end

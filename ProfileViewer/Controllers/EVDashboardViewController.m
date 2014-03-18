@@ -41,7 +41,7 @@
 {
     [super viewDidLoad];
     
-    self.profileImage = [UIImage imageNamed:@"avatar_cat"];
+    self.profileImage = [UIImage imageNamed:_currentUser.imageName];
     
     EVProfileViewController *profileVC = [[EVProfileViewController alloc] initWithUser:_currentUser];
     profileVC.delegate = self;
