@@ -25,7 +25,7 @@
 }
 
 @property (strong, nonatomic) UINavigationBar *navigationBar;
-@property (strong, nonatomic) UINavigationItem *customNavigationItem;
+@property (strong, nonatomic) UINavigationItem *navigationItemCustom;
 @property (strong, nonatomic) UIView *profileActivatorView;
 @property (strong, nonatomic) UIImageView *profileActivatorImageView;
 
@@ -166,11 +166,11 @@
         
         [_profileActivatorView addSubview:_profileActivatorImageView];
         
-        _customNavigationItem.title = @"";
+        _navigationItemCustom.title = @"";
     }
     else {
         _profileActivatorImageView.hidden = YES;
-        _customNavigationItem.title = self.title;
+        _navigationItemCustom.title = self.title;
     }
 }
 
@@ -184,8 +184,8 @@
     
     _navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, mainScreenSize.width, navHeight)];
     
-    _customNavigationItem = [[UINavigationItem alloc] initWithTitle:_profileImage ? @"" : self.title];
-    _navigationBar.items = @[_customNavigationItem];
+    _navigationItemCustom = [[UINavigationItem alloc] initWithTitle:_profileImage ? @"" : self.title];
+    _navigationBar.items = @[_navigationItemCustom];
     
     [self.view addSubview:_navigationBar];
 }
@@ -197,10 +197,12 @@
     // Disable interation with views
     _contentView.userInteractionEnabled = NO;
     _profileContainerView.userInteractionEnabled = NO;
+    _profileActivatorPanGestureRecognizer.enabled = NO;
+    _profileActivatorTapGestureRecognizer.enabled = NO;
     
     [UIView animateWithDuration:_animationDuration
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionAllowUserInteraction
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          // Drop content view
                          _contentView.frame = (CGRect){ CGPointMake(0, _profileContainerHeight), _contentView.bounds.size };
@@ -226,6 +228,8 @@
                          // Enable the close recognizer
                          _contentViewTapGestureRecognizer.enabled = YES;
                          _profileContainerView.userInteractionEnabled = YES;
+                         _profileActivatorTapGestureRecognizer.enabled = YES;
+                         _profileActivatorPanGestureRecognizer.enabled = YES;
                          
                          // We need to change the superview of the activator in order for the gesture recognizer to work
                          // (the recognizer doesn't work if the view left the bounds of its superview)
@@ -245,16 +249,28 @@
 
 - (void)hideProfileView
 {
-    // Now we need to give back the activator to the navigation bar
-    CGPoint newCenter = [_navigationBar convertPoint:_profileActivatorView.center fromView:_profileContainerView];
-    [_navigationBar addSubview:_profileActivatorView];
-    _profileActivatorView.center = newCenter;
+    // create options for animation because they can vary
+    UIViewAnimationOptions animationOptions = UIViewAnimationOptionCurveEaseIn;
+    
+    // Now we need to give back the activator to the navigation bar if it changed parents
+    if ([_profileActivatorView.superview isEqual:_profileContainerView]) {
+        CGPoint newCenter = [_navigationBar convertPoint:_profileActivatorView.center fromView:_profileContainerView];
+        [_navigationBar addSubview:_profileActivatorView];
+        _profileActivatorView.center = newCenter;
+    }
+    else {
+        // add beginFromCurrentState animation option to fix jumping image
+        animationOptions |= UIViewAnimationOptionBeginFromCurrentState;
+    }
     
     _profileContainerView.userInteractionEnabled = NO;
+    _profileActivatorTapGestureRecognizer.enabled = NO;
+    _profileActivatorPanGestureRecognizer.enabled = NO;
+    _contentViewTapGestureRecognizer.enabled = NO;
 
     [UIView animateWithDuration:_animationDuration
                           delay:0
-                        options:UIViewAnimationOptionCurveEaseIn|UIViewAnimationOptionAllowUserInteraction
+                        options:animationOptions
                      animations:^{
                          [self resetViews];
                          
@@ -264,7 +280,8 @@
                      } completion:^(BOOL finished) {
                          _isShowingProfileViewer = NO;
                          _contentView.userInteractionEnabled = YES;
-                         _contentViewTapGestureRecognizer.enabled = NO;
+                         _profileActivatorTapGestureRecognizer.enabled = YES;
+                         _profileActivatorPanGestureRecognizer.enabled = YES;
                          
                          if ([_delegate respondsToSelector:@selector(didHideProfileViewer)])
                              [_delegate didHideProfileViewer];
