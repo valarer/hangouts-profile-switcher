@@ -10,6 +10,11 @@
 #import "EVProfileViewerViewController.h"
 #import "EVProfileViewController.h"
 
-@interface EVDashboardViewController : EVProfileViewerViewController <UITableViewDataSource, UITableViewDelegate, EVProfileViewControllerDelegate>
+@interface EVDashboardViewController : EVProfileViewerViewController <EVProfileViewControllerDelegate>
+
+@property (strong, nonatomic) EVUser *currentUser;
+@property (strong, nonatomic) UITabBarController *tabBarController;
+
+- (instancetype)initWithTabBarController:(UITabBarController *)tabBarController;
 
 @end

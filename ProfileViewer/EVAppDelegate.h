@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EVDashboardViewController.h"
 
-@interface EVAppDelegate : UIResponder <UIApplicationDelegate>
+@interface EVAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) EVDashboardViewController *dashboardVC;
 
 @end

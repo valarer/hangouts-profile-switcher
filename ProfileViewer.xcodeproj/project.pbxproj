@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0702D85E18DF594200EBEB7C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0702D85D18DF594200EBEB7C /* Images.xcassets */; };
+		0702D86418DF5F3600EBEB7C /* EVTabItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702D86318DF5F3600EBEB7C /* EVTabItemViewController.m */; };
+		0702D86A18DF6CF000EBEB7C /* EVConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702D86918DF6CF000EBEB7C /* EVConstants.m */; };
+		0702D87018DF776800EBEB7C /* EVHangout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702D86F18DF776800EBEB7C /* EVHangout.m */; };
+		0702D87318DF77A300EBEB7C /* EVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 0702D87218DF77A300EBEB7C /* EVContact.m */; };
+		071E972018DB8D7D002B3244 /* HangoutsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071E971F18DB8D7D002B3244 /* HangoutsViewController.xib */; };
+		071E972218DB8D92002B3244 /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 071E972118DB8D92002B3244 /* ContactsViewController.xib */; };
+		071E972518DB8DC1002B3244 /* EVHangoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E972418DB8DC1002B3244 /* EVHangoutsViewController.m */; };
+		071E972818DB8DF6002B3244 /* EVContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071E972718DB8DF6002B3244 /* EVContactsViewController.m */; };
 		07332E3C18D4D1C200BC197E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E3B18D4D1C200BC197E /* Foundation.framework */; };
 		07332E3E18D4D1C200BC197E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E3D18D4D1C200BC197E /* CoreGraphics.framework */; };
 		07332E4018D4D1C200BC197E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E3F18D4D1C200BC197E /* UIKit.framework */; };
 		07332E4618D4D1C200BC197E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07332E4418D4D1C200BC197E /* InfoPlist.strings */; };
 		07332E4818D4D1C200BC197E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07332E4718D4D1C200BC197E /* main.m */; };
 		07332E4C18D4D1C200BC197E /* EVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07332E4B18D4D1C200BC197E /* EVAppDelegate.m */; };
-		07332E4E18D4D1C200BC197E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07332E4D18D4D1C200BC197E /* Images.xcassets */; };
 		07332E5518D4D1C200BC197E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E5418D4D1C200BC197E /* XCTest.framework */; };
 		07332E5618D4D1C200BC197E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E3B18D4D1C200BC197E /* Foundation.framework */; };
 		07332E5718D4D1C200BC197E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07332E3F18D4D1C200BC197E /* UIKit.framework */; };
 		07332E5F18D4D1C200BC197E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07332E5D18D4D1C200BC197E /* InfoPlist.strings */; };
 		07332E6118D4D1C200BC197E /* ProfileViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07332E6018D4D1C200BC197E /* ProfileViewerTests.m */; };
-		07332E6D18D4D2C000BC197E /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07332E6C18D4D2C000BC197E /* DashboardViewController.xib */; };
 		07332E7318D4D68000BC197E /* EVDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07332E7218D4D68000BC197E /* EVDashboardViewController.m */; };
 		07332E7B18D4D6F000BC197E /* EVProfileViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07332E7A18D4D6F000BC197E /* EVProfileViewerViewController.m */; };
 		07332E7F18D5313800BC197E /* ProfileViewerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07332E7E18D5313800BC197E /* ProfileViewerView.xib */; };
@@ -39,6 +46,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0702D85D18DF594200EBEB7C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0702D85F18DF5CA900EBEB7C /* EVMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVMacros.h; sourceTree = "<group>"; };
+		0702D86218DF5F3600EBEB7C /* EVTabItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVTabItemViewController.h; sourceTree = "<group>"; };
+		0702D86318DF5F3600EBEB7C /* EVTabItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVTabItemViewController.m; sourceTree = "<group>"; };
+		0702D86818DF6CF000EBEB7C /* EVConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVConstants.h; sourceTree = "<group>"; };
+		0702D86918DF6CF000EBEB7C /* EVConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVConstants.m; sourceTree = "<group>"; };
+		0702D86E18DF776800EBEB7C /* EVHangout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVHangout.h; sourceTree = "<group>"; };
+		0702D86F18DF776800EBEB7C /* EVHangout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVHangout.m; sourceTree = "<group>"; };
+		0702D87118DF77A300EBEB7C /* EVContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVContact.h; sourceTree = "<group>"; };
+		0702D87218DF77A300EBEB7C /* EVContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVContact.m; sourceTree = "<group>"; };
+		071E971F18DB8D7D002B3244 /* HangoutsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HangoutsViewController.xib; sourceTree = "<group>"; };
+		071E972118DB8D92002B3244 /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
+		071E972318DB8DC1002B3244 /* EVHangoutsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVHangoutsViewController.h; sourceTree = "<group>"; };
+		071E972418DB8DC1002B3244 /* EVHangoutsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVHangoutsViewController.m; sourceTree = "<group>"; };
+		071E972618DB8DF6002B3244 /* EVContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVContactsViewController.h; sourceTree = "<group>"; };
+		071E972718DB8DF6002B3244 /* EVContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVContactsViewController.m; sourceTree = "<group>"; };
 		07332E3818D4D1C200BC197E /* ProfileViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07332E3B18D4D1C200BC197E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07332E3D18D4D1C200BC197E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -49,13 +72,11 @@
 		07332E4918D4D1C200BC197E /* ProfileViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ProfileViewer-Prefix.pch"; sourceTree = "<group>"; };
 		07332E4A18D4D1C200BC197E /* EVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EVAppDelegate.h; sourceTree = "<group>"; };
 		07332E4B18D4D1C200BC197E /* EVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EVAppDelegate.m; sourceTree = "<group>"; };
-		07332E4D18D4D1C200BC197E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07332E5318D4D1C200BC197E /* ProfileViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProfileViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07332E5418D4D1C200BC197E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		07332E5C18D4D1C200BC197E /* ProfileViewerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ProfileViewerTests-Info.plist"; sourceTree = "<group>"; };
 		07332E5E18D4D1C200BC197E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		07332E6018D4D1C200BC197E /* ProfileViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewerTests.m; sourceTree = "<group>"; };
-		07332E6C18D4D2C000BC197E /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		07332E7118D4D68000BC197E /* EVDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVDashboardViewController.h; sourceTree = "<group>"; };
 		07332E7218D4D68000BC197E /* EVDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EVDashboardViewController.m; sourceTree = "<group>"; };
 		07332E7918D4D6F000BC197E /* EVProfileViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EVProfileViewerViewController.h; sourceTree = "<group>"; };
@@ -93,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0702D85C18DF592200EBEB7C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				07332E4A18D4D1C200BC197E /* EVAppDelegate.h */,
+				07332E4B18D4D1C200BC197E /* EVAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 		07332E2F18D4D1C200BC197E = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +156,12 @@
 		07332E4118D4D1C200BC197E /* ProfileViewer */ = {
 			isa = PBXGroup;
 			children = (
+				0702D85C18DF592200EBEB7C /* AppDelegate */,
 				07332E7818D4D6F000BC197E /* ProfileViewer */,
 				07332E6A18D4D28200BC197E /* Controllers */,
 				07332E8418D5744400BC197E /* Model */,
 				07332E6B18D4D28200BC197E /* Views */,
-				07332E4A18D4D1C200BC197E /* EVAppDelegate.h */,
-				07332E4B18D4D1C200BC197E /* EVAppDelegate.m */,
-				07332E4D18D4D1C200BC197E /* Images.xcassets */,
+				0702D85D18DF594200EBEB7C /* Images.xcassets */,
 				07332E4218D4D1C200BC197E /* Supporting Files */,
 			);
 			path = ProfileViewer;
@@ -144,7 +173,10 @@
 				07332E4318D4D1C200BC197E /* ProfileViewer-Info.plist */,
 				07332E4418D4D1C200BC197E /* InfoPlist.strings */,
 				07332E4718D4D1C200BC197E /* main.m */,
+				0702D85F18DF5CA900EBEB7C /* EVMacros.h */,
 				07332E4918D4D1C200BC197E /* ProfileViewer-Prefix.pch */,
+				0702D86818DF6CF000EBEB7C /* EVConstants.h */,
+				0702D86918DF6CF000EBEB7C /* EVConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,6 +206,12 @@
 				07332E7218D4D68000BC197E /* EVDashboardViewController.m */,
 				07332E8018D5546D00BC197E /* EVProfileViewController.h */,
 				07332E8118D5546D00BC197E /* EVProfileViewController.m */,
+				071E972318DB8DC1002B3244 /* EVHangoutsViewController.h */,
+				071E972418DB8DC1002B3244 /* EVHangoutsViewController.m */,
+				071E972618DB8DF6002B3244 /* EVContactsViewController.h */,
+				071E972718DB8DF6002B3244 /* EVContactsViewController.m */,
+				0702D86218DF5F3600EBEB7C /* EVTabItemViewController.h */,
+				0702D86318DF5F3600EBEB7C /* EVTabItemViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -181,8 +219,9 @@
 		07332E6B18D4D28200BC197E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				07332E6C18D4D2C000BC197E /* DashboardViewController.xib */,
 				07332E7E18D5313800BC197E /* ProfileViewerView.xib */,
+				071E971F18DB8D7D002B3244 /* HangoutsViewController.xib */,
+				071E972118DB8D92002B3244 /* ContactsViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,10 +238,14 @@
 		07332E8418D5744400BC197E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0702D86E18DF776800EBEB7C /* EVHangout.h */,
+				0702D86F18DF776800EBEB7C /* EVHangout.m */,
 				07332E8518D5745F00BC197E /* EVUser.h */,
 				07332E8618D5745F00BC197E /* EVUser.m */,
 				07332E8818D5760500BC197E /* EVModelController.h */,
 				07332E8918D5760500BC197E /* EVModelController.m */,
+				0702D87118DF77A300EBEB7C /* EVContact.h */,
+				0702D87218DF77A300EBEB7C /* EVContact.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,9 +326,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				07332E4618D4D1C200BC197E /* InfoPlist.strings in Resources */,
+				0702D85E18DF594200EBEB7C /* Images.xcassets in Resources */,
+				071E972018DB8D7D002B3244 /* HangoutsViewController.xib in Resources */,
 				07332E7F18D5313800BC197E /* ProfileViewerView.xib in Resources */,
-				07332E4E18D4D1C200BC197E /* Images.xcassets in Resources */,
-				07332E6D18D4D2C000BC197E /* DashboardViewController.xib in Resources */,
+				071E972218DB8D92002B3244 /* ContactsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,13 +348,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0702D86418DF5F3600EBEB7C /* EVTabItemViewController.m in Sources */,
+				071E972818DB8DF6002B3244 /* EVContactsViewController.m in Sources */,
 				07332E7318D4D68000BC197E /* EVDashboardViewController.m in Sources */,
+				0702D87018DF776800EBEB7C /* EVHangout.m in Sources */,
 				07332E8718D5745F00BC197E /* EVUser.m in Sources */,
 				07332E4818D4D1C200BC197E /* main.m in Sources */,
+				0702D87318DF77A300EBEB7C /* EVContact.m in Sources */,
 				07332E4C18D4D1C200BC197E /* EVAppDelegate.m in Sources */,
+				0702D86A18DF6CF000EBEB7C /* EVConstants.m in Sources */,
 				07332E7B18D4D6F000BC197E /* EVProfileViewerViewController.m in Sources */,
 				07332E8218D5546D00BC197E /* EVProfileViewController.m in Sources */,
 				07332E8A18D5760500BC197E /* EVModelController.m in Sources */,
+				071E972518DB8DC1002B3244 /* EVHangoutsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProfileViewer/ProfileViewer-Prefix.pch";
 				INFOPLIST_FILE = "ProfileViewer/ProfileViewer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -443,6 +494,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProfileViewer/ProfileViewer-Prefix.pch";
 				INFOPLIST_FILE = "ProfileViewer/ProfileViewer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -507,6 +559,7 @@
 				07332E6618D4D1C200BC197E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07332E6718D4D1C200BC197E /* Build configuration list for PBXNativeTarget "ProfileViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +568,7 @@
 				07332E6918D4D1C200BC197E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

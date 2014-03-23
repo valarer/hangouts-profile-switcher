@@ -56,7 +56,7 @@
     
     _addContainerView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.35];
     
-    _usersArray = [[EVModelController sharedModelController] otherUsersNot:_currentUser];
+    _usersArray = [[EVModelController sharedModelController] otherAccountsNot:_currentUser];
     
     // set the current height as the original
     _originalHeight = self.view.bounds.size.height;
@@ -89,7 +89,7 @@
     _currentUserNameLabel.text = _currentUser.name;
     _currentUserEmailLabel.text = _currentUser.email;
     
-    _usersArray = [[EVModelController sharedModelController] otherUsersNot:_currentUser];
+    _usersArray = [[EVModelController sharedModelController] otherAccountsNot:_currentUser];
     [_tableView reloadData];
 }
 
@@ -156,6 +156,11 @@
 {
     EVUser *user = _usersArray[indexPath.row];
     [self updateViewUserDataWithUser:user];
+    
+    [EVModelController sharedModelController].currentUser = user;
+    
+    // Different ways to notify other controllers (notification center and delegate)
+    [[NSNotificationCenter defaultCenter] postNotificationName:NC_USER_CHANGED object:nil userInfo:@{ kUserKey: user }];
     if ([_delegate respondsToSelector:@selector(didSelectUser:)]) {
         [_delegate didSelectUser:user];
     }

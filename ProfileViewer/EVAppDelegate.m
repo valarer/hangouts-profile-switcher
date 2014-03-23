@@ -8,6 +8,8 @@
 
 #import "EVAppDelegate.h"
 #import "EVDashboardViewController.h"
+#import "EVHangoutsViewController.h"
+#import "EVContactsViewController.h"
 
 @implementation EVAppDelegate
 
@@ -16,9 +18,28 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    EVDashboardViewController *dashboardVC = [[EVDashboardViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:dashboardVC];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    // In a real scenario, this should retrieve the user from stored data
+    [EVModelController sharedModelController].currentUser = [[[EVModelController sharedModelController] allAccounts] objectAtIndex:0];
+    
+    // Create the view controllers and add them to the TabBarController
+    EVContactsViewController *contactsViewController = [[EVContactsViewController alloc] init];
+    EVHangoutsViewController *hangoutsViewController = [[EVHangoutsViewController alloc] init];
+    
+    tabBarController.viewControllers = @[contactsViewController, hangoutsViewController];
+    
+    // The appdelegate will manage the tab controller
+    tabBarController.delegate = self;
+
+    // Initiate the Dashboard controller with the tabBarController to let it know it will contain one
+    _dashboardVC = [[EVDashboardViewController alloc] initWithTabBarController:tabBarController];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:_dashboardVC];
     self.window.rootViewController = navigationController;
+    
+    // Style the window tint color
+    self.window.tintColor = RGB(38, 169, 63);
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -49,6 +70,13 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - TabBarController Delegate
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    _dashboardVC.delegate = (EVTabItemViewController *)viewController;
 }
 
 @end

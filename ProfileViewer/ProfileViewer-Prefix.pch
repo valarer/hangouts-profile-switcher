@@ -13,4 +13,10 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import "EVMacros.h"
+    #import "EVConstants.h"
+    #import "EVAppDelegate.h"
+    #import "EVModelController.h"
 #endif
+
+#define APP_DELEGATE ((EVAppDelegate *)[UIApplication sharedApplication].delegate)
